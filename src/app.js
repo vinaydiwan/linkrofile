@@ -61,7 +61,6 @@ app.use(session({
         mongoUrl: dbUrl,
     }),
     cookie: {
-        secure: true,
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 7,
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),

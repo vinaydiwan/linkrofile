@@ -11,12 +11,21 @@
         <button class="btn" style="background-color: #f1faee;" type="submit">Search</button>
       </form>
       <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item m-1 me-0">
-          <a class="active nav-link" style="color: #1d3557;" href="/signin">Sign in</a>
-        </li>
-        <li class="nav-item m-1">
-          <a class="nav-link" style="color: #1d3557;" href="/signup">Sign Up</a>
-        </li>
+        <% if(!currentUser){ %>
+          <li class="nav-item m-1 me-0">
+            <a class="active nav-link" style="color: #1d3557;" href="/signin">Sign in</a>
+          </li>
+          <li class="nav-item m-1">
+            <a class="nav-link" style="color: #1d3557;" href="/signup">Sign Up</a>
+          </li>
+        <% } else { %>
+          <li class="nav-item m-1">
+            <a class="nav-link" style="color: #1d3557;" href="/<%= currentUser.username %>">Profile</a>
+          </li>
+          <li class="nav-item m-1">
+            <a class="nav-link" style="color: #1d3557;" href="/signout">Sign out</a>
+          </li> 
+        <% } %>  
       </ul>
     </div>
   </div>

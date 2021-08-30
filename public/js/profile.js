@@ -1,7 +1,7 @@
 let addSummaryModel = document.getElementById('addSummary');
 addSummaryModel.addEventListener('show.bs.modal', function (event) {
     // Button that triggered the modal
-    let button = event.relatedTarget
+    let button = event.relatedTarget;
     // Extract info from data-bs-* attributes
     let recipient = button.getAttribute('data-bs-whatever');
     // If necessary, you could initiate an AJAX request here

@@ -12,6 +12,9 @@ const mongoose = require('mongoose');
 const methodoverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
+const localStrategy = require('passport-local');
+const User = require('../models/users');
 
 // coonection of mongodb database
 const dbUrl = process.env.DB_URL;
@@ -51,7 +54,18 @@ app.use(session({
     },
 }));
 app.use(flash());
+
+// configure passport
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// locals variables stored in sessions
 app.use((req, res, next) => {
+    req.session.previousUrl= req.originalUrl;
+    res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();

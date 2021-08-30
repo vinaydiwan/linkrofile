@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./users');
 
 const profileSchema = new Schema({
+    author:{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
     fullname: String,
     firstname: String,
     lastname: String,
-    email: String,
+    email: {
+        type: String,
+        unique: true,
+    },
     country: String,
     role: String,
     summary: String,

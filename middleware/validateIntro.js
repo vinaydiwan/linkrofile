@@ -11,6 +11,7 @@ const IntroSchema = Joi.object({
 const validateIntro = (req, res, next) => {
     const { error } = IntroSchema.validate(req.body);
     if (error) {
+        console.log(error)
         req.flash("error","Incorrect credentials");
         return res.redirect("/new");
     }

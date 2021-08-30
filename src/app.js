@@ -15,6 +15,8 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const localStrategy = require('passport-local');
 const User = require('../models/users');
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
 
 // coonection of mongodb database
 const dbUrl = process.env.DB_URL;
@@ -39,6 +41,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: true }));
 // used to override http request method
 app.use(methodoverride("_method"));
+
+// injecting mongo sanitize
+app.use(mongoSanitize());
+
+// securing our website
+app.use(helmet({
+    contentSecurityPolicy: false,
+}));
 
 //creating and configuring session and flash
 app.use(session({

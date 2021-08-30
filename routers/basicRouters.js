@@ -36,6 +36,7 @@ router.route('/signup')
             const registerUser = await User.register(user, password);
             req.login(registerUser, err => {
                 if (err) return next(err);
+                req.session.newUser = true;
                 req.flash("success", "One more step to GO..");
                 return res.redirect('/new');
             })
@@ -71,6 +72,7 @@ router.route('/new')
             profile.author = req.user._id;
             await profile.save();
             req.flash("success", "Done! Account Created");
+            delete req.session.newUser;
             return res.redirect(`/${req.user.username}`);
         } catch (err) {
             if (err.code == 11000) {

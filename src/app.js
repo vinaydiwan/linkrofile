@@ -17,6 +17,7 @@ const localStrategy = require('passport-local');
 const User = require('../models/users');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const mongoStore = require('connect-mongo');
 
 // coonection of mongodb database
 const dbUrl = process.env.DB_URL;
@@ -56,8 +57,11 @@ app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
+    store: mongoStore.create({
+        mongoUrl: dbUrl,
+    }),
     cookie: {
-        // secure: true,
+        secure: true,
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 7,
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
@@ -74,7 +78,6 @@ passport.deserializeUser(User.deserializeUser());
 
 // locals variables stored in sessions
 app.use((req, res, next) => {
-    req.session.previousUrl= req.originalUrl;
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');

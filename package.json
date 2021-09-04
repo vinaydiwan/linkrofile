@@ -1,7 +1,7 @@
 {
   "name": "linkrofile",
-  "version": "1.4.0",
-  "description": "designed homepage and modified link frame",
+  "version": "1.4.1",
+  "description": "secure bug",
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

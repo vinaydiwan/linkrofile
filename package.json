@@ -1,14 +1,14 @@
 {
   "name": "linkrofile",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.4.0",
+  "description": "designed homepage and modified link frame",
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "vinaydiwan",
   "license": "ISC",
   "dependencies": {
     "connect-flash": "^0.1.1",

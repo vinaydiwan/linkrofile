@@ -100,9 +100,8 @@
             <div class="card-body"> 
                 <% for(let l of profile.links) {%>
                     <div>
-                        <p class="card-title m-1" style="font-size: larger;" ><%= l.title %></p>
                         <a href="<%= l.url %>" target="_blank"
-                            class="card-title m-1"><%= l.url %></a>
+                            class="card-title m-1"><%= l.title %></a>
                         <p class="card-text m-1"><%= l.description %></p>
                         <% if(currentUser && profile.author.equals(currentUser._id)){ %> 
                         <form action="/<%= profile.author.username %>/delLists/<%= l._id %>?_method=delete"

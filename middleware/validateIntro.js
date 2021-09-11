@@ -9,7 +9,11 @@ const IntroSchema = Joi.object({
 })
 
 const validateIntro = (req, res, next) => {
-    const { error } = IntroSchema.validate(req.body);
+    const { error, value } = IntroSchema.validate(req.body);
+    req.body.firstname = value.firstname;
+    req.body.lastname = value.lastname;
+    req.body.email = value.email;
+    req.body.role = value.role;
     if (error) {
         console.log(error)
         req.flash("error","Incorrect credentials");

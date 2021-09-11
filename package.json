@@ -1,7 +1,7 @@
 {
   "name": "linkrofile",
-  "version": "1.4.1",
-  "description": "secure bug",
+  "version": "1.4.2",
+  "description": "trim input values",
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

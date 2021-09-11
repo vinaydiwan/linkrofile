@@ -17,17 +17,17 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="Password">Password (min length: 8)</label>
-                        <input type="password" required class="form-control" minlength="8" id="password" name="password">
+                        <label for="Password">Password</label>
+                        <input type="password" required class="form-control" pattern="^(?:[0-9]+[a-zA-Z]|[a-zA-Z]+[0-9])[a-z0-9A-Z]*$" minlength="8" id="password" name="password">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         <div class="invalid-feedback">
-                            Please provide a Password.
+                            Password should contain atleast one letter, one number and 8 character long
                         </div>
                     </div>
                     <div class="text-center">
-                        <button href="#" class="btn btn-outline-dark">SignUp</button>
+                        <button class="btn btn-outline-dark">SignUp</button>
                     </div>
                 </form>
             </div>

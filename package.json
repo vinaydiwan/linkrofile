@@ -1,7 +1,7 @@
 {
   "name": "linkrofile",
-  "version": "1.4.2",
-  "description": "trim input values",
+  "version": "1.5.0",
+  "description": "added brave verification file",
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

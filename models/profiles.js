@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const User = require('./users');
 
 const profileSchema = new Schema({
-    author:{
+    author: {
         type: Schema.Types.ObjectId,
         ref: "User"
     },
@@ -24,6 +24,8 @@ const profileSchema = new Schema({
             description: String,
         }
     ],
+}, {
+   timestamps: true,
 });
 
 module.exports = mongoose.model('Profile', profileSchema);
